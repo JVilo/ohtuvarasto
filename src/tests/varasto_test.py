@@ -75,7 +75,3 @@ class TestVarasto(unittest.TestCase):
     def test_saldo_ja_varasto_yhta_suuri(self):
         self.varasto = Varasto(0)
         self.assertAlmostEqual(self.varasto.tilavuus,0)
-
-    def test_rikotaan_testi(self):
-        self.varasto.ota_varastosta(20)
-        self.assertAlmostEqual(self.varasto.saldo,self.varasto.tilavuus)
