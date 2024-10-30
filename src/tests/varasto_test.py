@@ -63,7 +63,6 @@ class TestVarasto(unittest.TestCase):
         tulostus = Varasto(10)
         vastaus = str(tulostus)
         self.assertEqual(vastaus, "saldo = 0, vielä tilaa 10")
-        #saldo = {self.saldo}, vielä tilaa {self.paljonko_mahtuu()}
     
     def test_tyhja_saldo_sama_kun_tilavus(self):
         self.varasto = Varasto(1,3)
@@ -76,4 +75,7 @@ class TestVarasto(unittest.TestCase):
     def test_saldo_ja_varasto_yhta_suuri(self):
         self.varasto = Varasto(0)
         self.assertAlmostEqual(self.varasto.tilavuus,0)
-    
+
+    def test_rikotaan_testi(self):
+        self.varasto.ota_varastosta(20)
+        self.assertAlmostEqual(self.varasto.saldo,self.varasto.tilavuus)
