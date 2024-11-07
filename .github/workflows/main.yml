@@ -30,5 +30,8 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: pylint
         run: | 
-          find . -name '*.py' -exec pylint {} \;
+          source venv/bin/activate
+          pylint $(git ls-files '*.py')
+          deactivate
+        working-directory: ${{ github.workspace }}
         
