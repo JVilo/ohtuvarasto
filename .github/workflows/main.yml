@@ -29,9 +29,5 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: pylint
-        run: | 
-          source venv/bin/activate
-          pylint $(git ls-files '*.py')
-          deactivate
-        working-directory: ${{ github.workspace }}
+        run: Run poetry run pylint src
         
